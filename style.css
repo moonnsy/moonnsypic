@@ -15,7 +15,12 @@
     --font-body: 'Montserrat', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Убирает синее выделение при тапе на мобилках */
+}
 
 body {
     font-family: var(--font-body);
