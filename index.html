@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonnsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Изящные шрифты: Playfair Display для заголовков (логотип, категории), Montserrat для кнопок и UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="state-home">
+
+    <!-- Фоновая магия -->
+    <div class="bg-layer"></div>
+    <div class="particles"></div>
+    <div class="particles2"></div>
+
+    <header class="header">
+        
+        <!-- Верхняя панель (показывается только во вкладках) -->
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <button class="back-btn" id="backBtn">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <span class="hide-mobile">Назад</span>
+                </button>
+            </div>
+            
+            <h2 id="categoryTitle" class="category-title"></h2>
+            
+            <div class="top-bar-right">
+                <a href="https://t.me/moonnsypic" class="tg-btn" target="_blank" title="Telegram">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 2 11 13"></path><path d="M22 2 15 22 11 13 2 9l20-7z"></path></svg>
+                    <span class="hide-mobile">Telegram</span>
+                </a>
+                
+                <div class="dropdown-container">
+                    <button class="dropdown-toggle" id="dropdownToggle">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                        <span class="hide-mobile">Категории</span>
+                    </button>
+                    <!-- Вложенное меню (скрыто по умолчанию) -->
+                    <div class="dropdown-content" id="dropdownContent">
+                        <button class="glass-btn" data-target="extension">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg> 
+                            <span>Расширения</span>
+                        </button>
+                        <button class="glass-btn" data-target="style">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> 
+                            <span>Стили</span>
+                        </button>
+                        <button class="glass-btn" data-target="theme">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> 
+                            <span>Темы</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Центральный блок (только для Главной) -->
+        <div class="home-content">
+            <div class="logo-container" id="logoContainer">
+                <svg class="logo-moon" viewBox="0 0 24 24" width="72" height="72">
+                    <defs>
+                        <linearGradient id="moonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="100%" stop-color="#8db7d5" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="url(#moonGrad)" />
+                </svg>
+                <h1 class="logo-text">Moonnsy</h1>
+            </div>
+            
+            <a href="https://t.me/moonnsypic" class="tg-btn-home" target="_blank">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 2 11 13"></path><path d="M22 2 15 22 11 13 2 9l20-7z"></path></svg>
+                <span>Telegram</span>
+            </a>
+
+            <!-- Кнопки по центру (только для Главной) -->
+            <nav class="home-nav">
+                <button class="glass-btn" data-target="extension">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span>Расширения</span>
+                </button>
+                <button class="glass-btn" data-target="style">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    <span>Стили</span>
+                </button>
+                <button class="glass-btn" data-target="theme">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    <span>Темы</span>
+                </button>
+            </nav>
+        </div>
+
+    </header>
+
+    <main class="gallery-wrapper">
+        <div class="gallery-grid">
+            
+            <!-- Расширения -->
+            <article class="glass-card" data-category="extension">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/6QzQ14Fk/lalalalalal.png" alt="ChatTree" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Расширение</span>
+                    <h3>ChatTree</h3>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="https://github.com/moonnsy/chat_tree.git">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                            <span>Ссылка</span>
+                        </button>
+                        <button class="view-btn info-btn">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <span>Подробнее</span>
+                        </button>
+                    </div>
+                    <!-- Скрытые данные для модалки -->
+                    <div class="info-data" style="display:none;">
+                        <div class="info-title">ChatTree</div>
+                        <div class="info-img">https://i.postimg.cc/6QzQ14Fk/lalalalalal.png</div>
+                        <div class="info-desc">
+                                <p>Если вы когда-нибудь ролили на chub.ai вы точно знаете какое прекрасное там было дерево! Вы можете с одного сообщения прыгнуть на предыдущее и написать новый ответ боту, тогда создастся абсолютно новая веточка, по которой можете развивать события отлично от первой. И так вы можете сделать на любом этапе своей рп! Даже если захотите прыгнуть в самое начало, прыгайте смело и ведите рп иначе, всё в ваших ручках!</p>
+                                <p>Я им пользуюсь уже долго, очень удобная штука, если бы видели сколько у меня там веток.... Зато весело!!</p>
+
+                                <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Вы можете:</h3>
+                                <ul>
+                                    <li>Прыгать по своим сообщениям и создавать кучу веток.</li>
+                                    <li>Всё хранится в одном файлике чата, а не плодятся дубли с разными ветками.</li>
+                                    <li>Удалять сообщения и целые ветки.</li>
+                                    <li>По слову искать свои посты.</li>
+                                    <li><strong>Метки!</strong> Поставить цветную метку к любому сообщению и написать описание для неё (двойным нажатием на метку вас перекинет к самому помеченному сообщению). Создать метку можно как в самом дереве, так и прямо в чате!</li>
+                                </ul>
+
+                                <h3 style="color: #eb8b8b; margin-top: 1.5rem; margin-bottom: 0.5rem;">Важно:</h3>
+                                <ul>
+                                    <li>Будьте осторожны при удалении веток или сообщений! Их восстановить не получится!</li>
+                                    <li>Кнопочка с расширением находится в "волшебной палочке".</li>
+                                    <li>Если у вашего бота есть несколько первых сообщений (которые в карте пишутся), то для каждого первого соо начинайте новый чат, иначе при прыжке на другие первые соо он будет чистить ветку! (Либо оставьте первым сообщением только одно, например точку, и от неё делайте разные ветки).</li>
+                                </ul>
+                                <p style="margin-top: 1rem;"><em>Могут быть баги, конечно же, говорите о них обязательно, будем чинить! Всем клёвых классных ролевых!!</em></p>
+                            </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="extension">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/W35cvM7M/STYLE-Semi-realistic-digital-painting-WLOP-202605262006.jpg" alt="MoodTube" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Расширение</span>
+                    <h3>MoodTube</h3>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="https://github.com/moonnsy/MoodTube">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                            <span>Ссылка</span>
+                        </button>
+                        <button class="view-btn info-btn">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <span>Подробнее</span>
+                        </button>
+                    </div>
+                    <!-- Скрытые данные для модалки -->
+                    <div class="info-data" style="display:none;">
+                        <div class="info-title">MoodTube</div>
+                        <div class="info-img">https://i.postimg.cc/W35cvM7M/STYLE-Semi-realistic-digital-painting-WLOP-202605262006.jpg</div>
+                        <div class="info-desc">
+                            <p>Если вам всегда не хватало атмосферной музыки прямо во время ролевой — эта штука для вас. Это не просто встроенный плеер, это ваш личный ИИ-диджей! Он умеет сам читать контекст чата и подбирать саундтрек под то, что сейчас происходит с вашими персонажами. Больше не нужно сворачивать окно и сбивать настрой, чтобы найти подходящую музыку, всё в ваших ручках!</p>
+                            <p>Я пользуюсь им сама, это очень удобная штука для погружения в атмосферу!</p>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Основные фичи:</h3>
+                            <ul>
+                                <li><strong>Умный авто-подбор:</strong> ИИ сам проанализирует последние 15 сообщений и включит то, что нужно (кнопка с волшебной палочкой).</li>
+                                <li><strong>Генерация плейлистов:</strong> Сразу целый плейлист под настроение текущей сцены одной кнопкой (до 30 треков!).</li>
+                                <li><strong>Гибкие настройки вайба:</strong> Выбирайте жанры, настроение и конкретный сценарий (Босс-файт, Таверна, Погоня, Романтика, Русреал и куча других!).</li>
+                                <li><strong>Умный обход блокировок:</strong> Если ютуб блочит видео из-за авторских прав, плеер сам попытается найти прямой аудио-поток или вытянет подходящий кавер/ремикс.</li>
+                                <li><strong>Свободный виджет:</strong> Плавающее окно с красивым блюром, которое можно таскать по экрану и сворачивать. Абсолютно не мешает!</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Что новенького:</h3>
+                            <ul>
+                                <li><strong>Сохранение очередей:</strong> Очереди треков, лайки и настройки теперь привязываются к конкретным чатам и сохраняются после перезагрузки.</li>
+                                <li><strong>Интеграция профилей:</strong> Подключение работает прямо через профили соединения самой Таверны (не нужно заново вписывать ключи).</li>
+                                <li><strong>Темы оформления:</strong> Выбирайте цвета под настроение или включите автоматический подхват цветов из вашей темы Таверны.</li>
+                                <li><strong>Лайки и Избранное:</strong> Отдельные списки для каждого чата. Можно отправлять свои любимые треки в контекст, чтобы ИИ подбирал похожие.</li>
+                                <li><strong>Плавающая кнопка Пауза/Пуск:</strong> Удобный мини-контроль. При долгом нажатии откроется сам плеер (круто интегрируется с расширением DreamAlbum!).</li>
+                                <li><strong>ООС Указания:</strong> В разделе Кастом добавлено Жёсткое правило — можно в любом формате написать ИИ, что нужно включить.</li>
+                                <li><strong>Очистка очереди:</strong> Просто нажмите на мусорный бак и вся очередь пропадёт. И добавлена полоска проигрывания для перемотки трека!</li>
+                            </ul>
+
+                            <h3 style="color: #eb8b8b; margin-top: 1.5rem; margin-bottom: 0.5rem;">Важно:</h3>
+                            <ul>
+                                <li>После установки обязательно перезагрузите Таверну!</li>
+                                <li>Часть треков падает в кэш браузера для быстрого переслушивания без засорения файлов Таверны. (Сохранится до очистки кэша браузера).</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><em>Пишите о багах, по возможности починю! Идеи и пожелания всегда приветствуются!</em></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="extension">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/4d7qrrmV/STYLE-Semi-realistic-digital-painting-WLOP-202606041519.jpg" alt="Chat Folders" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Расширение</span>
+                    <h3>Chat Folders</h3>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="https://github.com/moonnsy/ChatFolders.git">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                            <span>Ссылка</span>
+                        </button>
+                        <button class="view-btn info-btn">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <span>Подробнее</span>
+                        </button>
+                    </div>
+                    <!-- Скрытые данные для модалки -->
+                    <div class="info-data" style="display:none;">
+                        <div class="info-title">Chat Folders</div>
+                        <div class="info-img">https://i.postimg.cc/4d7qrrmV/STYLE-Semi-realistic-digital-painting-WLOP-202606041519.jpg</div>
+                        <div class="info-desc">
+                            <p>Устали теряться в бесконечном списке чатов и забывать, где какой лор? Я сделала новое расширение ChatFolders, которое поможет разложить все ваши любимые сюжеты по полочкам!</p>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Основные фичи:</h3>
+                            <ul>
+                                <li>Вы можете создавать отдельные папки и сохранять в них свои текущие чаты.</li>
+                                <li>Расширение поддерживает как классические одиночные чаты с персонажами, так и групповые ролевые.</li>
+                                <li>В списке рядом с названием сюжета автоматически подтягивается и отображается аватарка персонажа или группы.</li>
+                                <li><strong>Drag-and-Drop:</strong> чаты и папки можно перетаскивать, чтобы менять их порядок, или закидывать сюжеты прямо внутрь нужной папки.</li>
+                                <li>Есть строка умного поиска, которая ищет нужные сюжеты не только по названию, но и по вашим заметкам в описании.</li>
+                                <li>К каждому чату можно добавить свое текстовое описание, а если текста много — есть кнопка, чтобы развернуть поле ввода на весь экран.</li>
+                                <li><strong>Бэкапы:</strong> Вы не потеряете свои сортировки при переездах: встроена система бэкапов, позволяющая сохранить структуру папок в JSON-файл и легко загрузить её обратно.</li>
+                            </ul>
+
+                            <h3 style="color: #eb8b8b; margin-top: 1.5rem; margin-bottom: 0.5rem;">Где найти:</h3>
+                            <p>После установки загляните в главное боковое меню опций таверны (три полоски рядом с волшебной палочкой). Там появится новая кнопка ChatFolders с синей иконкой открытой папки. Просто кликайте на неё, и откроется большое меню вашего личного архива.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="extension">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/59kj5vMD/sdelaj-fon-odnotonno-temno-zelenym-cvet-202606201500.jpg" alt="Clothes" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Расширение</span>
+                    <h3>Clothes & Locations</h3>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="https://github.com/moonnsy/clothes.git">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                            <span>Ссылка</span>
+                        </button>
+                        <button class="view-btn info-btn">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <span>Подробнее</span>
+                        </button>
+                    </div>
+                    <!-- Скрытые данные для модалки -->
+                    <div class="info-data" style="display:none;">
+                        <div class="info-title">Clothes & Locations</div>
+                        <div class="info-img">https://i.postimg.cc/59kj5vMD/sdelaj-fon-odnotonno-temno-zelenym-cvet-202606201500.jpg</div>
+                        <div class="info-desc">
+                            <p>Лень прописывать в постах одежду каждый раз? Это расширение сделает всё за вас! Оно сгенерирует подробное описание аутфита и само отправит его в контекст, чтобы ИИ больше не одевал вас "по дефолту" из карточки.</p>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Основные фичи (Одежда):</h3>
+                            <ul>
+                                <li><strong>ИИ-описание:</strong> Расширение позволяет через ИИ описывать аутфит по картинке (можно загрузить от 1 до 4 картинок за раз, например: платье, туфли, сумочка) и вставляет описание в контекст. Можно писать инструкции (зажав Describe with AI) или задавать описание вручную.</li>
+                                <li><strong>Множественный выбор:</strong> Добавлены 4 категории (Одежда, Причёска, Макияж, Аксессуары). На юзера и чара можно надеть до 4 карточек разных категорий одновременно! (Кнопка-глазик покажет всё, что надето сейчас).</li>
+                                <li><strong>Настройки генерации:</strong> Выбирайте размер описания (Brief/Detailed) и ограничение по токенам. Задавайте глубину внедрения в контекст.</li>
+                                <li><strong>Удобная сортировка:</strong> Фильтрация по персонажам, персонам, категориям и тегам. Раздельный выбор для одиночных и групповых чатов.</li>
+                                <li><strong>Поддержка DreamAlbum:</strong> Описание и картинки передаются во внешние блоки альбома Кадис! Макросы для стиля: <code>{{getglobalvar::clothes_user}}</code> и <code>{{getglobalvar::clothes_char}}</code>.</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Фичи (Локации):</h3>
+                            <ul>
+                                <li>Отдельная вкладка для создания и управления локациями (как для юзера, так и для чара).</li>
+                                <li>Настройка длины описания, токенов и глубины отдельно от одежды.</li>
+                                <li>Возможность отправлять локацию текстом или <strong>картинкой прямо в чат</strong> (если модель поддерживает зрение).</li>
+                                <li>Макросы для альбома: <code>{{getglobalvar::location_user}}</code> и <code>{{getglobalvar::location_char}}</code>. (Отправка картинкой также работает с альбомом!).</li>
+                            </ul>
+
+                            <h3 style="color: #eb8b8b; margin-top: 1.5rem; margin-bottom: 0.5rem;">Где найти и как выглядит:</h3>
+                            <ul>
+                                <li>Базово встроены темы под другие мои расширения + поддержка автоматической подстройки под вашу тему Таверны!</li>
+                                <li>Основное меню расширения находится в "волшебной палочке".</li>
+                                <li>Для быстрого доступа можно вынести иконку прямо в чат-бар (чекбокс "Show quick access icon near chat bar").</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="extension">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/NfcGkxzK/People-talking-at-bar-2K-202607061918.jpg" alt="Immersion Director" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Расширение</span>
+                    <h3>Immersion Director</h3>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="https://github.com/moonnsy/ImmersionDirector.git">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                            <span>Ссылка</span>
+                        </button>
+                        <button class="view-btn info-btn">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <span>Подробнее</span>
+                        </button>
+                    </div>
+                    <!-- Скрытые данные для модалки -->
+                    <div class="info-data" style="display:none;">
+                        <div class="info-title">Immersion Director</div>
+                        <div class="info-img">https://i.postimg.cc/NfcGkxzK/People-talking-at-bar-2K-202607061918.jpg</div>
+                        <div class="info-desc">
+                            <p>Специально для групповых чатов! Это расширение создано для того, чтобы сделать ваше общение с несколькими ботами максимально реалистичным и управляемым. Боты перестанут быть всезнайками!</p>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Присутствие (Контроль сцены):</h3>
+                            <ul>
+                                <li>Выбирайте, кто из персонажей физически находится рядом в сцене.</li>
+                                <li>Если чар вышел из комнаты или уснул, он не будет "слышать" сообщения и реагировать на них в контексте.</li>
+                                <li>У сообщений в чате появляются визуальные маркеры (глазик), чтобы всегда было понятно, кто был свидетелем конкретных слов или действий.</li>
+                                <li><strong>Авто-парсер:</strong> ИИ может сам проанализировать последние сообщения и определить, кто сейчас присутствует, а кто нет! (Частоту можно задать в настройках).</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Совместные ответы:</h3>
+                            <ul>
+                                <li>Уникальная функция "Связки": можно объединить двух персонажей (нажав на скрепочку), и они будут отвечать в одном сообщении как единый участник или рассказчик. На ИИ отправятся карточки обоих персонажей!</li>
+                                <li>Для таких ответов аватарка в чате будет красиво делиться пополам, объединяя иконки обоих чаров!</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Сводка событий (Саммари):</h3>
+                            <ul>
+                                <li>Если персонаж отсутствовал, расширение умеет генерировать краткую саммари-сводку событий о том, где кто находится и что происходило.</li>
+                                <li>Когда чар "возвращается", этот контекст подкидывается ему в промпт, чтобы он оставался в курсе атмосферы и не удивлялся происходящему.</li>
+                                <li>Можно генерировать сводку по отдельной кнопке или автоматически после каждого поста.</li>
+                            </ul>
+
+                            <h3 style="color: #eb8b8b; margin-top: 1.5rem; margin-bottom: 0.5rem;">Интерфейс и управление:</h3>
+                            <ul>
+                                <li>Удобная панель управления группой, которую можно закрепить над полем ввода, сбоку или сделать плавающей кнопкой.</li>
+                                <li>В панели можно в один клик мьютить чаров, триггерить им ответы или связывать их между собой.</li>
+                                <li><strong>Быстрое меню:</strong> Если долго нажать на кнопку отправки сообщения, появится меню быстрого выбора персонажа для следующего ответа (нужно включить в настройках).</li>
+                                <li>Для старых групповых чатов есть удобная кнопка "Сделать всю историю Старой", чтобы не размечать каждое прошлое сообщение вручную.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Стили -->
+            <article class="glass-card" data-category="style">
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/8zv34Hdc/Figure-with-hands-on-face-202607100411.jpg" alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/g0P7TZN9/Woman-sitting-in-mirror-frame-202607100352.jpg" alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/VLxZJtyq/Woman-crouching-on-pipe-2K-202607100123.jpg" alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/85Ft7Nbh/Couple-in-intimate-pose-2K-202607102257.jpg" alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/D03vDfjH/Two-figures-interacting-intimately-2K-202607102320.jpg" alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/4dsZb2YN/Figure-reclining-on-couch-2K-202607102339.jpg" alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/XvpGwJBc/Woman-with-bow-and-wings-202607110002.jpg" alt="Violet Masquerade Style" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                </div>
+                <div class="card-content">
+                    <span class="badge">Стиль</span>
+                    <div class="model-info">
+                        <img src="https://img.icons8.ru/ios-filled/50/gemini-ai.png" alt="gemini-ai" class="model-icon"/>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="STYLE: Vibrant violet and deep blue accents over a muted monochromatic base (blacks, whites, grays). High-quality modern 2D anime digital illustration, elegant and mysterious gothic aesthetic. Refined and sharp line art with variable weight, detailed ink-like strokes. Striking color contrast, crisp cel-shading combined with soft gradients, dramatic shadows, sharp highlights. Intricate ornamental details, flowing fabrics, sophisticated and romantic masquerade atmosphere.">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="glass-card" data-category="style">
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/XYTgH6Nv/Woman-with-hands-on-face-202607100411.jpg" alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/C5LCBF7s/Figure-sitting-in-ornate-mirror-202607100351.jpg" alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/9F0tcQrR/Woman-crouching-on-pipe-2K-202607100125.jpg" alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/3JZCJkTW/Couple-embracing-on-red-carpet-202607102300.jpg" alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/ht12QCRK/Girls-leaning-on-each-other-202607102330.jpg" alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/NFKn1R7n/Figure-reclining-on-couch-2K-202607102343.jpg" alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/WzbPkDhJ/Woman-drawing-bow-with-wings-202607110005.jpg" alt="Style 2" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                </div>
+                <div class="card-content">
+                    <span class="badge">Стиль</span>
+                    <div class="model-info">
+                        <img src="https://img.icons8.ru/ios-filled/50/gemini-ai.png" alt="gemini-ai" class="model-icon"/>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="STYLE: High-quality modern 2D anime digital illustration, elegant and melancholic gothic aesthetic. Refined and sharp line art with variable weight, detailed ink-like strokes. Striking color contrast featuring a muted monochromatic base (blacks, whites, vintage grays) with deep burgundy, wine red, and dark crimson accents.">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="style">
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/MG719crL/Figure-with-hands-on-face-202607100416.jpg" alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/prT8VsVg/Woman-sitting-by-golden-mirror-202607100351.jpg" alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/qBbyDHjd/Person-crouching-on-pipe-2K-202607100127-(1).jpg" alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/Hn95xhF0/Figures-pressed-together-intimately-2K-202607102301.jpg" alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/XqKC1z8d/Two-girls-interacting-2K-202607102333.jpg" alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/VNHp57XJ/Figure-reclining-on-couch-jacket-202607102345.jpg" alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/QxwRXYkd/Woman-drawing-bow-with-wings-202607110007.jpg" alt="Style 3" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                </div>
+                <div class="card-content">
+                    <span class="badge">Стиль</span>
+                    <div class="model-info">
+                        <img src="https://img.icons8.ru/ios-filled/50/gemini-ai.png" alt="gemini-ai" class="model-icon"/>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="STYLE: Grungy and expressive semi-realistic digital painting. Rough, visible brushstrokes, heavy textured canvas feel, messy and chaotic ink outlines blended with thick paint. Extremely desaturated and muted color palette, muddy grays, sepia tones, and dark ashy colors with raw red splatters. Flat, overcast diffused lighting, deep melancholic and psychological atmosphere. Unpolished, raw artistic technique, 2D dark art aesthetic.">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="style">
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/Y92L8dFg/Woman-with-hands-on-face-202607100415.jpg" alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/bJvd1sX9/Woman-sitting-by-golden-mirror-202607100352.jpg" alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/3JGNXsqB/Woman-crouching-on-pipe-2K-202607100121.jpg" alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/yNRDxGZ1/Couple-embracing-on-red-carpet-202607102302.jpg" alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/CKWnhgrP/Two-girls-leaning-together-2K-202607102334.jpg" alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/L88xft9q/Figure-reclining-with-hand-in-202607102347.jpg" alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/nLkRQ37m/Woman-drawing-bow-with-wings-202607090133.jpg" alt="Style 4" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                </div>
+                <div class="card-content">
+                    <span class="badge">Стиль</span>
+                    <div class="model-info">
+                        <img src="https://img.icons8.ru/ios-filled/50/gemini-ai.png" alt="gemini-ai" class="model-icon"/>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="STYLE: High-quality semi-realistic digital painting, warm and romantic fantasy aesthetic. Painterly art style with visible, soft brushstrokes resembling oil or gouache. Golden hour lighting, warm color palette featuring honey golds, soft peaches, creamy whites, and muted earthy greens. Delicate and expressive rendering, soft skin with natural blush, stylized but realistic anatomy. Ethereal, elegant atmosphere, softly blended edges with distinct, painterly light and shadow shapes.">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="style">
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/k5J5dB57/Woman-with-hands-on-face-202607100410.jpg" alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/fy9zvd8k/Woman-sitting-in-temple-frame-202607100352.jpg" alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/dQkrfSXZ/Woman-crouching-on-pipe-2K-202607100115.jpg" alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/GpRCPgfL/Couple-embracing-at-event-2K-202607102305.jpg" alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/SKzjtPQs/Two-girls-interacting-2K-202607102336-(1).jpg" alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/LXLDRvD2/Figure-reclining-on-couch-2K-202607102348.jpg" alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/3x9fkLgM/Woman-drawing-large-bow-2K-202607110015.jpg" alt="Style 5" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                </div>
+                <div class="card-content">
+                    <span class="badge">Стиль</span>
+                    <div class="model-info">
+                        <img src="https://img.icons8.ru/ios-filled/50/gemini-ai.png" alt="gemini-ai" class="model-icon"/>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn" data-text="STYLE: High-quality soft modern 2D anime digital illustration, refined and delicate aesthetic. Extremely thin, elegant line art that blends seamlessly into the colors. Highly detailed and smooth skin rendering with soft, glossy highlights and natural blushing. Soft, diffused lighting with gentle transitions between light and shadow. Slightly desaturated, harmonious color palette with flat-colored clothing to contrast the intricately shaded skin. Clean composition, ethereal and highly polished modern anime art style, masterpiece.">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Темы -->
+            <article class="glass-card" data-category="theme">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/RZY9cyXX/photo-2026-07-09-15-13-34.jpg" alt="Dark Blue Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Тема</span>
+                    <h3>Dark Blue Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Dark%20Blue%20Y2K.json" download="Dark Blue Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                        <button class="view-btn recolor-btn" data-target="recolors">Перекрасы</button>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="glass-card" data-category="theme">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/KvwRXZ6q/IMG-0257.png" alt="Violet Masquerade" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Тема</span>
+                    <h3>Violet Masquerade</h3>
+                    <div class="card-actions">
+                        <a href="Violet%20Masquerade.json" download="Violet Masquerade.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Перекрасы -->
+            <article class="glass-card" data-category="recolors">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/3R1DJ3F9/IMG-0233.jpg" alt="Vintage Sepia Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Перекрас</span>
+                    <h3>Vintage Sepia Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Vintage%20Sepia%20Y2K.json" download="Vintage Sepia Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="recolors">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/kMZgNVGp/IMG-0234.jpg" alt="Soft Monochrome Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Перекрас</span>
+                    <h3>Soft Monochrome Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Soft%20Monochrome%20Y2K.json" download="Soft Monochrome Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="recolors">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/N0fKJ3cJ/IMG-0235.jpg" alt="Pastel Pink Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Перекрас</span>
+                    <h3>Pastel Pink Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Pastel%20Pink%20Y2K.json" download="Pastel Pink Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="recolors">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/XNypzKTx/IMG-0236.jpg" alt="Olive Grove Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Перекрас</span>
+                    <h3>Olive Grove Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Olive%20Grove%20Y2K.json" download="Olive Grove Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="recolors">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/4xwd9W9y/IMG-0237.jpg" alt="Matcha Green Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Перекрас</span>
+                    <h3>Matcha Green Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Matcha%20Green%20Y2K.json" download="Matcha Green Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="recolors">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/QN5db87N/IMG-0238.jpg" alt="Lavender Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Перекрас</span>
+                    <h3>Lavender Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Lavender%20Y2K.json" download="Lavender Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="recolors">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/9fKcdKFj/IMG-0239.jpg" alt="Foggy Morning Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Перекрас</span>
+                    <h3>Foggy Morning Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Foggy%20Morning%20Y2K.json" download="Foggy Morning Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card" data-category="recolors">
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/Px1nmqRp/IMG-0240.jpg" alt="Autumn Leaves Y2K" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Перекрас</span>
+                    <h3>Autumn Leaves Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Autumn%20Leaves%20Y2K.json" download="Autumn Leaves Y2K.json" type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Модальное окно для полноэкранного просмотра картинок (Lightbox) -->
+    <div id="lightbox" class="lightbox">
+        <button id="lightboxClose" class="lightbox-close">
+            <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        
+        <button id="lightboxPrev" class="lightbox-nav prev">
+            <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        
+        <img id="lightboxImg" class="lightbox-img" src="" alt="">
+        
+        <button id="lightboxNext" class="lightbox-nav next">
+            <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+    </div>
+
+    <!-- Модальное окно Подробнее (Info Modal) -->
+    <div id="infoModal" class="lightbox">
+        <div class="info-modal-content">
+            <button id="infoModalClose" class="info-modal-close">
+                <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <img id="infoModalImg" src="" alt="Cover" class="info-modal-img">
+            <div class="info-modal-text">
+                <h2 id="infoModalTitle">Название</h2>
+                <div id="infoModalDesc">Описание</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
