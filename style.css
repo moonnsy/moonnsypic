@@ -530,6 +530,7 @@ body:not(.state-home) .home-content { display: none; }
 .carousel-images .card-img {
     flex: 0 0 100%;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 .card-arrow {
     position: absolute;
