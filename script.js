@@ -10,9 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const goHome = () => {
         body.classList.add('state-home');
+        body.removeAttribute('data-active-category');
         navBtns.forEach(b => b.classList.remove('active'));
         cards.forEach(card => card.classList.remove('visible'));
         dropdownContent.classList.remove('show');
+        const promptFilterContainer = document.getElementById('promptFilterContainer');
+        const promptCounterWrapper = document.getElementById('promptCounterWrapper');
+        if(randomPromptBtn) randomPromptBtn.style.display = 'none';
+        if(promptFilterContainer) promptFilterContainer.style.display = 'none';
+        if(promptCounterWrapper) promptCounterWrapper.style.display = 'none';
     };
 
     logoContainer.addEventListener('click', goHome);
@@ -30,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navBtns.forEach(btn => {
+        if (btn.id === 'randomPromptBtn' || btn.id === 'promptDropdownSelected') return; // Исключаем кнопки из логики навигации
+
         btn.addEventListener('click', () => {
             if (body.classList.contains('state-home')) {
                 body.classList.remove('state-home');
@@ -41,6 +49,21 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll(`.glass-btn[data-target="${targetCategory}"]`).forEach(b => {
                 b.classList.add('active');
             });
+            
+            body.setAttribute('data-active-category', targetCategory);
+            const randomPromptBtn = document.getElementById('randomPromptBtn');
+            const promptFilterContainer = document.getElementById('promptFilterContainer');
+            const promptCounterWrapper = document.getElementById('promptCounterWrapper');
+            if (randomPromptBtn) {
+                randomPromptBtn.style.display = targetCategory === 'prompt' ? 'flex' : 'none';
+            }
+            if (promptFilterContainer) {
+                promptFilterContainer.style.display = targetCategory === 'prompt' ? 'block' : 'none';
+            }
+            if (promptCounterWrapper) {
+                promptCounterWrapper.style.display = targetCategory === 'prompt' ? 'block' : 'none';
+                if (targetCategory === 'prompt') updatePromptCounter();
+            }
 
             // Обновляем заголовок (используем textContent кнопки без учета SVG)
             // Берем только текстовый span
@@ -104,6 +127,98 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // === КОПИРОВАНИЕ ДЛЯ ПРОМПТОВ (Pinterest) ===
+    const copyPromptBtns = document.querySelectorAll('.copy-prompt-btn');
+    copyPromptBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Не открывать лайтбокс
+            const img = btn.previousElementSibling;
+            if (img && img.hasAttribute('data-prompt')) {
+                const textToCopy = img.getAttribute('data-prompt');
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const originalHTML = btn.innerHTML;
+                    btn.classList.add('copied');
+                    btn.innerHTML = '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btn.innerHTML = originalHTML;
+                    }, 2000);
+                });
+            }
+        });
+    });
+
+    // === ФУНКЦИЯ ОБНОВЛЕНИЯ СЧЕТЧИКА ===
+    const updatePromptCounter = () => {
+        const counter = document.getElementById('promptCounter');
+        if (counter) {
+            const visibleCards = Array.from(document.querySelectorAll('.prompt-card')).filter(card => card.style.display !== 'none');
+            counter.textContent = `Промптов: ${visibleCards.length}`;
+        }
+    };
+
+    // === РАНДОМНЫЙ ПРОМПТ И КАСТОМНЫЙ ФИЛЬТР ===
+    const randomPromptBtn = document.getElementById('randomPromptBtn');
+    if (randomPromptBtn) {
+        randomPromptBtn.addEventListener('click', () => {
+            // Ищем только видимые промпты (если применен фильтр)
+            const promptCards = Array.from(document.querySelectorAll('.prompt-card')).filter(card => card.style.display !== 'none');
+            if (promptCards.length > 0) {
+                const randomCard = promptCards[Math.floor(Math.random() * promptCards.length)];
+                const img = randomCard.querySelector('.prompt-img');
+                if (img) img.click(); // Открываем лайтбокс
+            }
+        });
+    }
+
+    const promptDropdownSelected = document.getElementById('promptDropdownSelected');
+    const promptDropdownOptions = document.getElementById('promptDropdownOptions');
+    const promptDropdownText = document.getElementById('promptDropdownText');
+
+    if (promptDropdownSelected && promptDropdownOptions) {
+        promptDropdownSelected.addEventListener('click', (e) => {
+            e.stopPropagation();
+            promptDropdownOptions.style.display = promptDropdownOptions.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!promptDropdownOptions.contains(e.target) && !promptDropdownSelected.contains(e.target)) {
+                promptDropdownOptions.style.display = 'none';
+            }
+        });
+
+        const options = promptDropdownOptions.querySelectorAll('.dropdown-option');
+        options.forEach(option => {
+            option.addEventListener('click', (e) => {
+                const selectedTag = e.target.getAttribute('data-value');
+                const selectedText = e.target.textContent;
+                
+                // Обновляем текст и активный класс
+                promptDropdownText.textContent = selectedText;
+                options.forEach(opt => opt.classList.remove('active'));
+                e.target.classList.add('active');
+                promptDropdownOptions.style.display = 'none';
+
+                // Фильтруем карточки
+                const promptCards = document.querySelectorAll('.prompt-card');
+                promptCards.forEach(card => {
+                    if (selectedTag === 'all') {
+                        card.style.display = '';
+                    } else {
+                        const tags = card.getAttribute('data-tags') || '';
+                        if (tags.split(',').map(t => t.trim()).includes(selectedTag)) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+                
+                updatePromptCounter();
+            });
+        });
+    }
+
     // === КАРАУСЕЛЬ В КАРТОЧКАХ ===
     const carouselWrappers = document.querySelectorAll('.carousel-wrapper');
     carouselWrappers.forEach(wrapper => {
@@ -130,6 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
     
+    const lightboxCopyBtn = document.getElementById('lightboxCopyBtn');
+
     let currentGallery = [];
     let currentIndex = 0;
 
@@ -140,6 +257,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Ищем все картинки в текущей карточке (если это карусель)
             const parentContainer = img.closest('.carousel-images') || img.parentElement;
             currentGallery = Array.from(parentContainer.querySelectorAll('.card-img'));
+            // Если мы кликнули на промпт, то собираем все промпты для галереи
+            if (img.classList.contains('prompt-img')) {
+                const visibleCards = Array.from(document.querySelectorAll('.prompt-card')).filter(card => card.style.display !== 'none');
+                currentGallery = visibleCards.map(c => c.querySelector('.prompt-img')).filter(Boolean);
+            }
             currentIndex = currentGallery.indexOf(img);
 
             updateLightboxImage();
@@ -160,7 +282,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateLightboxImage = () => {
         if(currentGallery.length > 0) {
-            lightboxImg.src = currentGallery[currentIndex].src;
+            const currentImg = currentGallery[currentIndex];
+            lightboxImg.src = currentImg.src;
+            
+            // Если есть промпт, показываем кнопку копирования
+            if (lightboxCopyBtn) {
+                if (currentImg.hasAttribute('data-prompt')) {
+                    lightboxCopyBtn.style.display = 'flex';
+                    lightboxCopyBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        navigator.clipboard.writeText(currentImg.getAttribute('data-prompt')).then(() => {
+                            const originalHTML = lightboxCopyBtn.innerHTML;
+                            lightboxCopyBtn.classList.add('copied');
+                            lightboxCopyBtn.innerHTML = '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                            setTimeout(() => {
+                                lightboxCopyBtn.classList.remove('copied');
+                                lightboxCopyBtn.innerHTML = originalHTML;
+                            }, 2000);
+                        });
+                    };
+                } else {
+                    lightboxCopyBtn.style.display = 'none';
+                }
+            }
         }
     };
 

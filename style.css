@@ -331,7 +331,7 @@ body:not(.state-home) .home-content { display: none; }
 .gallery-wrapper {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 5rem;
+    padding: 1rem 1.5rem 5rem;
     animation: fadeUp 0.5s ease forwards;
 }
 
@@ -692,3 +692,70 @@ body:not(.state-home) .home-content { display: none; }
     .info-modal-text h2 { font-size: 1.7rem; }
 }
 
+/* === ПРОМПТЫ (ПИНТЕРЕСТ СТИЛЬ) === */
+
+
+.prompt-img-wrapper {
+    position: relative;
+    width: 100%;
+}
+.prompt-img {
+    width: 100%;
+    height: auto;
+        display: block;
+    border-radius: 12px;
+}
+.copy-prompt-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.6);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+    opacity: 0; /* Скрыта по умолчанию */
+}
+@media (max-width: 768px) {
+    .copy-prompt-btn { opacity: 1; /* На мобилках всегда видна */ }
+}
+.prompt-img-wrapper:hover .copy-prompt-btn {
+    opacity: 1;
+}
+.copy-prompt-btn:hover {
+    background: rgba(0,0,0,0.9);
+    transform: scale(1.1);
+}
+.copy-prompt-btn.copied {
+    background: var(--primary);
+    color: var(--bg-dark);
+}
+
+.dropdown-option:hover { background: rgba(141, 183, 213, 0.1); }
+.dropdown-option.active { background: rgba(141, 183, 213, 0.15); color: var(--primary); font-weight: bold; }
+
+
+/* === ИСКЛЮЧЕНИЕ ДЛЯ ПРОМПТОВ (Pinterest-стиль) === */
+body[data-active-category="prompt"] .gallery-grid {
+    display: block; /* Отключаем Grid */
+    column-count: 3;
+    column-gap: 1.5rem;
+}
+@media (max-width: 1024px) {
+    body[data-active-category="prompt"] .gallery-grid { column-count: 2; }
+}
+@media (max-width: 600px) {
+    body[data-active-category="prompt"] .gallery-grid { column-count: 1; }
+}
+
+.glass-card[data-category="prompt"] {
+    break-inside: avoid; /* Защита от разрыва внутри колонок */
+    margin-bottom: 1.5rem;
+}
