@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Изящные шрифты: Playfair Display для заголовков (логотип, категории), Montserrat для кнопок и UI -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=12">
 </head>
 <body class="state-home">
 
@@ -43,23 +43,27 @@
                     </button>
                     <!-- Вложенное меню (скрыто по умолчанию) -->
                     <div class="dropdown-content" id="dropdownContent">
-                        <button class="glass-btn" data-target="theme">
-                            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                            <span>Темы</span>
-                        </button>
-                        <button class="glass-btn" data-target="prompt">
-                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> 
-                            <span>Промпты</span>
-                        </button>
-                        <button class="glass-btn" data-target="extension">
-                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> 
-                            <span>Расширения</span>
-                        </button>
-                        <button class="glass-btn" data-target="style">
-                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> 
-                            <span>Стили</span>
-                        </button>
-                    </div>
+                  <button class="glass-btn" data-target="about">
+                                              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                              <span>О себе</span>
+                                          </button>
+                  <button class="glass-btn" data-target="prompt">
+                                              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> 
+                                              <span>Промпты</span>
+                                          </button>
+                  <button class="glass-btn" data-target="extension">
+                                              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> 
+                                              <span>Расширения</span>
+                                          </button>
+                  <button class="glass-btn" data-target="theme">
+                                              <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                                              <span>Темы</span>
+                                          </button>
+                  <button class="glass-btn" data-target="style">
+                                              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> 
+                                              <span>Стили</span>
+                                          </button>
+              </div>
                 </div>
             </div>
         </div>
@@ -86,23 +90,27 @@
 
             <!-- Кнопки по центру (только для Главной) -->
             <nav class="home-nav">
-                <button class="glass-btn" data-target="theme">
-                    <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                    <span>Темы</span>
-                </button>
-                <button class="glass-btn" data-target="prompt">
-                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    <span>Промпты</span>
-                </button>
-                <button class="glass-btn" data-target="extension">
-                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                    <span>Расширения</span>
-                </button>
-                <button class="glass-btn" data-target="style">
-                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-                    <span>Стили</span>
-                </button>
-            </nav>
+                  <button class="glass-btn" data-target="about">
+                                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                      <span>О себе</span>
+                                  </button>
+                  <button class="glass-btn" data-target="prompt">
+                                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                      <span>Промпты</span>
+                                  </button>
+                  <button class="glass-btn" data-target="extension">
+                                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                      <span>Расширения</span>
+                                  </button>
+                  <button class="glass-btn" data-target="theme">
+                                      <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                                      <span>Темы</span>
+                                  </button>
+                  <button class="glass-btn" data-target="style">
+                                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                                      <span>Стили</span>
+                                  </button>
+              </nav>
         </div>
 
     </header>
@@ -4504,6 +4512,44 @@ FORMAT: 2/3">
                 </div>
             </article>
 
+
+            <!-- Раздел О себе (About Page) -->
+            <article class="glass-card about-page-card" data-category="about">
+                <img src="https://i.postimg.cc/Pqn2nhMK/Woman-on-balcony-at-twilight-202607121717.jpg" alt="About Moonnsy" class="about-page-img">
+                <div class="about-text">
+                    <p>Всем привет! ✨</p>
+                    <p>Меня зовут Ксюша или просто Мунси, как угодно. Я люблю красивые картиночки, всякие приколы, ролевые в таверне и делать всё, лишь бы не работать (но всё равно приходится ахахах)</p>
+                    <p>Здесь собрано всё что я делала для картиночек и самой таверны:</p>
+                    <ul>
+                        <li>Расширения для SillyTavern</li>
+                        <li>Промпты для генерации картинок</li>
+                        <li>Стили для генерации картинок на модели Nano Banana 2 Lite</li>
+                        <li>Темы для SillyTavern</li>
+                        <li>Возможно в будущем что-то ещё добавится, обновится и вообще я много чего хочу сделать (может гайды.... кто знает)</li>
+                    </ul>
+                    <p>Чучуть деталей:</p>
+                    <ul>
+                        <li>Картинки и видео я генерирю в <a href="https://labs.google/flow/about" target="_blank">Google Flow</a>. Поподробнее о нём можно почитать в <a href="https://t.me/cadis_ai/11" target="_blank">посте</a> моей любимой Кадис.</li>
+                        <li>Стили для картинок: Я использую стили либо свои с этого сайта, либо беру стили с <a href="https://ann22cadis.github.io/cadis-ai" target="_blank">сайта</a> Кадис, либо использую немного изменённый стиль от <a href="https://t.me/sillykamoi" target="_blank">Камои</a>:
+                            <details style="margin-top:0.5rem; background:rgba(255,255,255,0.05); padding:0.5rem; border-radius:6px; cursor:pointer;">
+                                <summary style="font-weight:bold; color:var(--primary);">Показать стиль</summary>
+                                <div style="margin-top:0.5rem; font-size:0.85rem; font-family:monospace; color:#ccc; line-height:1.4;">Semi-realistic digital painting, WLOP inspired. Natural balanced color palette — neutral skin tones with healthy warmth, no color cast. Gentle shadows with natural color, not tinted blue or green. Anatomically correct hands and proportions. Match the rendering technique, line quality, texture, and ornamental details from the reference image. Avoid: stubble, beard, exaggerated expressions, uncanny valley, bad anatomy, watermark, text, blurry</div>
+                            </details>
+                            <br>Референс очень влияет на результат картинки, помните! На результат влияет и настроение модели и загруженность серверов гугл (ง ื▿ ื)ว
+                        </li>
+                        <li>По любым багам, вопросам и идеям вы всегда можете обратиться в комментариях, чатике канала или, если стесняетесь, напишите просто в ЛС самого канала.</li>
+                    </ul>
+                    <p>Поддержать меня вы можете любым способом:</p>
+                    <ul>
+                        <li>Подписаться на мой <a href="https://t.me/moonnsypic" target="_blank">Телеграм канал</a></li>
+                        <li>Ставить реакции на постики, меня они очень радуют, а ещё это бесплатново!! То же самое и с комментариями! Люблю когда вы делитесь своими получившимися картиночками!</li>
+                        <li>Дать <a href="https://t.me/boost/moonnsypic" target="_blank">бусты</a> каналу для красивых реакций и оформления</li>
+                        <li>Самый хардкорный и неловкий, всё по личному желанию – можно кинуть мини <a href="https://boosty.to/moonnsypic/donate" target="_blank">донатик</a> на бусти!</li>
+                    </ul>
+                    <p style="margin-top:2rem; font-weight:bold; color:var(--primary); font-size:1.1rem; text-align:center;">Спасибо за внимание, вы чудо! 💖</p>
+                </div>
+            </article>
+
         </div>
     </main>
 
@@ -4541,6 +4587,10 @@ FORMAT: 2/3">
         </div>
     </div>
 
-    <script src="script.js?v=7"></script>
+    
+    
+    </div>
+
+    <script src="script.js?v=12"></script>
 </body>
 </html>
