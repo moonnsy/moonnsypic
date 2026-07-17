@@ -132,7 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     copyPromptBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation(); // Не открывать лайтбокс
-            const img = btn.previousElementSibling;
+            const wrapper = btn.closest('.prompt-img-wrapper');
+            const img = wrapper ? wrapper.querySelector('.prompt-img') : null;
             if (img && img.hasAttribute('data-prompt')) {
                 const textToCopy = img.getAttribute('data-prompt');
                 navigator.clipboard.writeText(textToCopy).then(() => {
