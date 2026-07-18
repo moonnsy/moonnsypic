@@ -312,6 +312,34 @@ def build_site():
     
     # Also remove the page-header H1 empty block
     index_page = index_page.replace('<div class="page-header">\n            <h1></h1>\n        </div>', '')
+    
+    # Extract images from source_data for preloading
+    with open(OLD_INDEX, 'r', encoding='utf-8') as f:
+        src_html = f.read()
+    img_urls = list(set(re.findall(r'<img[^>]+src="([^"]+)"', src_html)))
+    img_urls = [u for u in img_urls if not u.startswith('data:') and 'icons8' not in u]
+    import json
+    preload_js = f"""
+    <script>
+        window.addEventListener('load', () => {{
+            setTimeout(() => {{
+                const urls = {json.dumps(img_urls)};
+                let i = 0;
+                const loadNext = () => {{
+                    if (i < urls.length) {{
+                        const img = new Image();
+                        img.src = urls[i];
+                        i++;
+                        setTimeout(loadNext, 50);
+                    }}
+                }};
+                loadNext();
+            }}, 1000);
+        }});
+    </script>
+    """
+    index_page = index_page.replace('</body>', preload_js + '</body>')
+    
     with open(os.path.join(NEW_DIR, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(index_page)
         
