@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonnsy — Styles</title>
+    <link rel="icon" type="image/png" href="sprite_0004.png">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const savedTheme = localStorage.getItem('moonnsy-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+    <div class="top-menu">
+        <a href="javascript:history.back()"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</a>
+        <a href="index.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Home</a>
+        <a href="prompts.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompts</a>
+        <a href="styles.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Styles</a>
+        <a href="themes.html"><svg class="menu-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Themes</a>
+        <a href="extensions.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Extensions</a>
+        <a href="about.html"><svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg> About</a>
+        <a href="https://t.me/moonnsypic" target="_blank" title="Telegram"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
+    </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>STYLES</h1>
+        </div>
+        
+        <div class="standard-grid">
+            
+        <article class="retro-window style-card" data-tags="">
+            <div class="window-titlebar">
+                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> STYLE</div>
+                <div class="window-controls">
+                    <div class="control-btn control-min"></div>
+                    <div class="control-btn control-max"></div>
+                    <div class="control-btn control-close"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/8zv34Hdc/Figure-with-hands-on-face-202607100411.jpg"
+                            alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/g0P7TZN9/Woman-sitting-in-mirror-frame-202607100352.jpg"
+                            alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/VLxZJtyq/Woman-crouching-on-pipe-2K-202607100123.jpg"
+                            alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/85Ft7Nbh/Couple-in-intimate-pose-2K-202607102257.jpg"
+                            alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/D03vDfjH/Two-figures-interacting-intimately-2K-202607102320.jpg"
+                            alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/4dsZb2YN/Figure-reclining-on-couch-2K-202607102339.jpg"
+                            alt="Violet Masquerade Style" class="card-img">
+                        <img src="https://i.postimg.cc/XvpGwJBc/Woman-with-bow-and-wings-202607110002.jpg"
+                            alt="Violet Masquerade Style" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+                <div class="card-content">
+                    <div class="model-info">
+                        <span class="model-icon" style="-webkit-mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: var(--accent); display: inline-block;"></span>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn"
+                            data-text="STYLE: Vibrant violet and deep blue accents over a muted monochromatic base (blacks, whites, grays). High-quality modern 2D anime digital illustration, elegant and mysterious gothic aesthetic. Refined and sharp line art with variable weight, detailed ink-like strokes. Striking color contrast, crisp cel-shading combined with soft gradients, dramatic shadows, sharp highlights. Intricate ornamental details, flowing fabrics, sophisticated and romantic masquerade atmosphere.">
+                            <svg class="svg-icon" viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            
+            </div>
+        </article>
+        
+
+        <article class="retro-window style-card" data-tags="">
+            <div class="window-titlebar">
+                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> STYLE</div>
+                <div class="window-controls">
+                    <div class="control-btn control-min"></div>
+                    <div class="control-btn control-max"></div>
+                    <div class="control-btn control-close"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/XYTgH6Nv/Woman-with-hands-on-face-202607100411.jpg" alt="Style 2"
+                            class="card-img">
+                        <img src="https://i.postimg.cc/C5LCBF7s/Figure-sitting-in-ornate-mirror-202607100351.jpg"
+                            alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/9F0tcQrR/Woman-crouching-on-pipe-2K-202607100125.jpg"
+                            alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/3JZCJkTW/Couple-embracing-on-red-carpet-202607102300.jpg"
+                            alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/ht12QCRK/Girls-leaning-on-each-other-202607102330.jpg"
+                            alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/NFKn1R7n/Figure-reclining-on-couch-2K-202607102343.jpg"
+                            alt="Style 2" class="card-img">
+                        <img src="https://i.postimg.cc/WzbPkDhJ/Woman-drawing-bow-with-wings-202607110005.jpg"
+                            alt="Style 2" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+                <div class="card-content">
+                    <div class="model-info">
+                        <span class="model-icon" style="-webkit-mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: var(--accent); display: inline-block;"></span>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn"
+                            data-text="STYLE: High-quality modern 2D anime digital illustration, elegant and melancholic gothic aesthetic. Refined and sharp line art with variable weight, detailed ink-like strokes. Striking color contrast featuring a muted monochromatic base (blacks, whites, vintage grays) with deep burgundy, wine red, and dark crimson accents.">
+                            <svg class="svg-icon" viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            
+            </div>
+        </article>
+        
+
+        <article class="retro-window style-card" data-tags="">
+            <div class="window-titlebar">
+                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> STYLE</div>
+                <div class="window-controls">
+                    <div class="control-btn control-min"></div>
+                    <div class="control-btn control-max"></div>
+                    <div class="control-btn control-close"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/MG719crL/Figure-with-hands-on-face-202607100416.jpg"
+                            alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/prT8VsVg/Woman-sitting-by-golden-mirror-202607100351.jpg"
+                            alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/qBbyDHjd/Person-crouching-on-pipe-2K-202607100127-(1).jpg"
+                            alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/Hn95xhF0/Figures-pressed-together-intimately-2K-202607102301.jpg"
+                            alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/XqKC1z8d/Two-girls-interacting-2K-202607102333.jpg" alt="Style 3"
+                            class="card-img">
+                        <img src="https://i.postimg.cc/VNHp57XJ/Figure-reclining-on-couch-jacket-202607102345.jpg"
+                            alt="Style 3" class="card-img">
+                        <img src="https://i.postimg.cc/QxwRXYkd/Woman-drawing-bow-with-wings-202607110007.jpg"
+                            alt="Style 3" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+                <div class="card-content">
+                    <div class="model-info">
+                        <span class="model-icon" style="-webkit-mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: var(--accent); display: inline-block;"></span>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn"
+                            data-text="STYLE: Grungy and expressive semi-realistic digital painting. Rough, visible brushstrokes, heavy textured canvas feel, messy and chaotic ink outlines blended with thick paint. Extremely desaturated and muted color palette, muddy grays, sepia tones, and dark ashy colors with raw red splatters. Flat, overcast diffused lighting, deep melancholic and psychological atmosphere. Unpolished, raw artistic technique, 2D dark art aesthetic.">
+                            <svg class="svg-icon" viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            
+            </div>
+        </article>
+        
+
+        <article class="retro-window style-card" data-tags="">
+            <div class="window-titlebar">
+                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> STYLE</div>
+                <div class="window-controls">
+                    <div class="control-btn control-min"></div>
+                    <div class="control-btn control-max"></div>
+                    <div class="control-btn control-close"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/Y92L8dFg/Woman-with-hands-on-face-202607100415.jpg" alt="Style 4"
+                            class="card-img">
+                        <img src="https://i.postimg.cc/bJvd1sX9/Woman-sitting-by-golden-mirror-202607100352.jpg"
+                            alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/3JGNXsqB/Woman-crouching-on-pipe-2K-202607100121.jpg"
+                            alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/yNRDxGZ1/Couple-embracing-on-red-carpet-202607102302.jpg"
+                            alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/CKWnhgrP/Two-girls-leaning-together-2K-202607102334.jpg"
+                            alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/L88xft9q/Figure-reclining-with-hand-in-202607102347.jpg"
+                            alt="Style 4" class="card-img">
+                        <img src="https://i.postimg.cc/nLkRQ37m/Woman-drawing-bow-with-wings-202607090133.jpg"
+                            alt="Style 4" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+                <div class="card-content">
+                    <div class="model-info">
+                        <span class="model-icon" style="-webkit-mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: var(--accent); display: inline-block;"></span>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn"
+                            data-text="STYLE: High-quality semi-realistic digital painting, warm and romantic fantasy aesthetic. Painterly art style with visible, soft brushstrokes resembling oil or gouache. Golden hour lighting, warm color palette featuring honey golds, soft peaches, creamy whites, and muted earthy greens. Delicate and expressive rendering, soft skin with natural blush, stylized but realistic anatomy. Ethereal, elegant atmosphere, softly blended edges with distinct, painterly light and shadow shapes.">
+                            <svg class="svg-icon" viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            
+            </div>
+        </article>
+        
+
+        <article class="retro-window style-card" data-tags="">
+            <div class="window-titlebar">
+                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> STYLE</div>
+                <div class="window-controls">
+                    <div class="control-btn control-min"></div>
+                    <div class="control-btn control-max"></div>
+                    <div class="control-btn control-close"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                
+                <div class="card-img-wrapper carousel-wrapper">
+                    <div class="carousel-images">
+                        <img src="https://i.postimg.cc/k5J5dB57/Woman-with-hands-on-face-202607100410.jpg" alt="Style 5"
+                            class="card-img">
+                        <img src="https://i.postimg.cc/fy9zvd8k/Woman-sitting-in-temple-frame-202607100352.jpg"
+                            alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/dQkrfSXZ/Woman-crouching-on-pipe-2K-202607100115.jpg"
+                            alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/GpRCPgfL/Couple-embracing-at-event-2K-202607102305.jpg"
+                            alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/SKzjtPQs/Two-girls-interacting-2K-202607102336-(1).jpg"
+                            alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/LXLDRvD2/Figure-reclining-on-couch-2K-202607102348.jpg"
+                            alt="Style 5" class="card-img">
+                        <img src="https://i.postimg.cc/3x9fkLgM/Woman-drawing-large-bow-2K-202607110015.jpg"
+                            alt="Style 5" class="card-img">
+                    </div>
+                    <button class="card-arrow prev-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <button class="card-arrow next-arrow"><svg class="svg-icon" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+                <div class="card-content">
+                    <div class="model-info">
+                        <span class="model-icon" style="-webkit-mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; mask: url(https://img.icons8.ru/ios-filled/50/gemini-ai.png) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: var(--accent); display: inline-block;"></span>
+                        <span>Nano Banana 2 Lite</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn copy-btn"
+                            data-text="STYLE: High-quality soft modern 2D anime digital illustration, refined and delicate aesthetic. Extremely thin, elegant line art that blends seamlessly into the colors. Highly detailed and smooth skin rendering with soft, glossy highlights and natural blushing. Soft, diffused lighting with gentle transitions between light and shadow. Slightly desaturated, harmonious color palette with flat-colored clothing to contrast the intricately shaded skin. Clean composition, ethereal and highly polished modern anime art style, masterpiece.">
+                            <svg class="svg-icon" viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Скопировать стиль</span>
+                        </button>
+                    </div>
+                </div>
+            
+            </div>
+        </article>
+        
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">x</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&lt;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&gt;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Fullscreen" class="lightbox-img" id="lightboxImg">
+            <button class="lightbox-copy-btn" id="lightboxCopyBtn" style="display:none;" title="Скопировать промпт">
+                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Info Modal -->
+    <div id="infoModal" class="lightbox">
+        <div class="lightbox-content" style="background: var(--window-bg); border: 2px solid var(--window-border); border-radius: 8px; max-width: 600px; padding: 20px; text-align: left; position: relative; width: 90vw;">
+            <button class="lightbox-close" id="infoModalClose">x</button>
+            <img id="infoModalImg" src="" alt="Cover" style="width: 100%; border-radius: 4px; margin-bottom: 15px; display: none;">
+            <h2 id="infoModalTitle" style="color: var(--text-main); font-family: var(--font-title); margin-bottom: 10px;">Title</h2>
+            <div id="infoModalDesc" style="color: var(--text-main); font-size: 14px; line-height: 1.5; max-height: 50vh; overflow-y: auto; padding-right: 10px;">Description</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

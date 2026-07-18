@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonnsy — Immersion Director</title>
+    <link rel="icon" type="image/png" href="sprite_0004.png">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const savedTheme = localStorage.getItem('moonnsy-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+    <div class="top-menu">
+        <a href="javascript:history.back()"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</a>
+        <a href="index.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Home</a>
+        <a href="prompts.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompts</a>
+        <a href="styles.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Styles</a>
+        <a href="themes.html"><svg class="menu-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Themes</a>
+        <a href="extensions.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Extensions</a>
+        <a href="about.html"><svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg> About</a>
+        <a href="https://t.me/moonnsypic" target="_blank" title="Telegram"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
+    </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>IMMERSION DIRECTOR</h1>
+        </div>
+        
+        <div>
+            
+                    <div class="about-container" style="max-width: 800px; margin: 0 auto; width: 100%;">
+                        <article class="retro-window about-card" data-tags="" style="display: block; width: 100%; box-sizing: border-box;">
+                            <div class="window-titlebar">
+                                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Immersion Director</div>
+                                <div class="window-controls">
+                                    <div class="control-btn control-min"></div>
+                                    <div class="control-btn control-max"></div>
+                                    <div class="control-btn control-close"></div>
+                                </div>
+                            </div>
+                            <div class="window-content">
+                                <img src="https://i.postimg.cc/NfcGkxzK/People-talking-at-bar-2K-202607061918.jpg" alt="Immersion Director" class="about-page-img" style="margin-bottom: 20px;">
+                                <div class="about-text">
+                                    <p>Специально для групповых чатов! Это расширение создано для того, чтобы сделать ваше
+                                общение с несколькими ботами максимально реалистичным и управляемым. Боты перестанут
+                                быть всезнайками!</p>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Присутствие
+                                (Контроль сцены):</h3>
+                            <ul>
+                                <li>Выбирайте, кто из персонажей физически находится рядом в сцене.</li>
+                                <li>Если чар вышел из комнаты или уснул, он не будет "слышать" сообщения и реагировать
+                                    на них в контексте.</li>
+                                <li>У сообщений в чате появляются визуальные маркеры (глазик), чтобы всегда было
+                                    понятно, кто был свидетелем конкретных слов или действий.</li>
+                                <li><strong>Авто-парсер:</strong> ИИ может сам проанализировать последние сообщения и
+                                    определить, кто сейчас присутствует, а кто нет! (Частоту можно задать в настройках).
+                                </li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Совместные
+                                ответы:</h3>
+                            <ul>
+                                <li>Уникальная функция "Связки": можно объединить двух персонажей (нажав на скрепочку),
+                                    и они будут отвечать в одном сообщении как единый участник или рассказчик. На ИИ
+                                    отправятся карточки обоих персонажей!</li>
+                                <li>Для таких ответов аватарка в чате будет красиво делиться пополам, объединяя иконки
+                                    обоих чаров!</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Сводка событий
+                                (Саммари):</h3>
+                            <ul>
+                                <li>Если персонаж отсутствовал, расширение умеет генерировать краткую саммари-сводку
+                                    событий о том, где кто находится и что происходило.</li>
+                                <li>Когда чар "возвращается", этот контекст подкидывается ему в промпт, чтобы он
+                                    оставался в курсе атмосферы и не удивлялся происходящему.</li>
+                                <li>Можно генерировать сводку по отдельной кнопке или автоматически после каждого поста.
+                                </li>
+                            </ul>
+
+                            <h3 style="color: #eb8b8b; margin-top: 1.5rem; margin-bottom: 0.5rem;">Интерфейс и
+                                управление:</h3>
+                            <ul>
+                                <li>Удобная панель управления группой, которую можно закрепить над полем ввода, сбоку
+                                    или сделать плавающей кнопкой.</li>
+                                <li>В панели можно в один клик мьютить чаров, триггерить им ответы или связывать их
+                                    между собой.</li>
+                                <li><strong>Быстрое меню:</strong> Если долго нажать на кнопку отправки сообщения,
+                                    появится меню быстрого выбора персонажа для следующего ответа (нужно включить в
+                                    настройках).</li>
+                                <li>Для старых групповых чатов есть удобная кнопка "Сделать всю историю Старой", чтобы
+                                    не размечать каждое прошлое сообщение вручную.</li>
+                            </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">x</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&lt;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&gt;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Fullscreen" class="lightbox-img" id="lightboxImg">
+            <button class="lightbox-copy-btn" id="lightboxCopyBtn" style="display:none;" title="Скопировать промпт">
+                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Info Modal -->
+    <div id="infoModal" class="lightbox">
+        <div class="lightbox-content" style="background: var(--window-bg); border: 2px solid var(--window-border); border-radius: 8px; max-width: 600px; padding: 20px; text-align: left; position: relative; width: 90vw;">
+            <button class="lightbox-close" id="infoModalClose">x</button>
+            <img id="infoModalImg" src="" alt="Cover" style="width: 100%; border-radius: 4px; margin-bottom: 15px; display: none;">
+            <h2 id="infoModalTitle" style="color: var(--text-main); font-family: var(--font-title); margin-bottom: 10px;">Title</h2>
+            <div id="infoModalDesc" style="color: var(--text-main); font-size: 14px; line-height: 1.5; max-height: 50vh; overflow-y: auto; padding-right: 10px;">Description</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

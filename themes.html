@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonnsy — Themes</title>
+    <link rel="icon" type="image/png" href="sprite_0004.png">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const savedTheme = localStorage.getItem('moonnsy-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+    <div class="top-menu">
+        <a href="javascript:history.back()"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</a>
+        <a href="index.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Home</a>
+        <a href="prompts.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompts</a>
+        <a href="styles.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Styles</a>
+        <a href="themes.html"><svg class="menu-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Themes</a>
+        <a href="extensions.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Extensions</a>
+        <a href="about.html"><svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg> About</a>
+        <a href="https://t.me/moonnsypic" target="_blank" title="Telegram"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
+    </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>THEMES</h1>
+        </div>
+        
+        <div class="standard-grid">
+            
+        <article class="retro-window theme-card" data-tags="">
+            <div class="window-titlebar">
+                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> THEME</div>
+                <div class="window-controls">
+                    <div class="control-btn control-min"></div>
+                    <div class="control-btn control-max"></div>
+                    <div class="control-btn control-close"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/RZY9cyXX/photo-2026-07-09-15-13-34.jpg" alt="Dark Blue Y2K"
+                        class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3>Dark Blue Y2K</h3>
+                    <div class="card-actions">
+                        <a href="Dark%20Blue%20Y2K.json" download="Dark Blue Y2K.json" type="application/octet-stream"
+                            class="view-btn">Скачать</a>
+                        <button class="view-btn recolor-btn" data-target="recolors">Перекрасы</button>
+                    </div>
+                </div>
+            
+            </div>
+        </article>
+        
+
+        <article class="retro-window theme-card" data-tags="">
+            <div class="window-titlebar">
+                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> THEME</div>
+                <div class="window-controls">
+                    <div class="control-btn control-min"></div>
+                    <div class="control-btn control-max"></div>
+                    <div class="control-btn control-close"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                
+                <div class="card-img-wrapper">
+                    <img src="https://i.postimg.cc/KvwRXZ6q/IMG-0257.png" alt="Violet Masquerade" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3>Violet Masquerade</h3>
+                    <div class="card-actions">
+                        <a href="Violet%20Masquerade.json" download="Violet Masquerade.json"
+                            type="application/octet-stream" class="view-btn">Скачать</a>
+                    </div>
+                </div>
+            
+            </div>
+        </article>
+        
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">x</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&lt;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&gt;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Fullscreen" class="lightbox-img" id="lightboxImg">
+            <button class="lightbox-copy-btn" id="lightboxCopyBtn" style="display:none;" title="Скопировать промпт">
+                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Info Modal -->
+    <div id="infoModal" class="lightbox">
+        <div class="lightbox-content" style="background: var(--window-bg); border: 2px solid var(--window-border); border-radius: 8px; max-width: 600px; padding: 20px; text-align: left; position: relative; width: 90vw;">
+            <button class="lightbox-close" id="infoModalClose">x</button>
+            <img id="infoModalImg" src="" alt="Cover" style="width: 100%; border-radius: 4px; margin-bottom: 15px; display: none;">
+            <h2 id="infoModalTitle" style="color: var(--text-main); font-family: var(--font-title); margin-bottom: 10px;">Title</h2>
+            <div id="infoModalDesc" style="color: var(--text-main); font-size: 14px; line-height: 1.5; max-height: 50vh; overflow-y: auto; padding-right: 10px;">Description</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
