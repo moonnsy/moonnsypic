@@ -268,7 +268,7 @@ def build_site():
                 </div>
             </div>
             <div class="window-content" style="padding: 35px 30px; text-align: center; box-sizing: border-box;">
-                <img src="https://i.postimg.cc/fbKpTmzm/Woman-with-piercings-and-decals-202607181859.jpg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid var(--window-border); outline: 2px solid var(--accent); outline-offset: 4px; margin: 0 auto 25px auto; display: block;">
+                <img src="Woman_with_piercings_and_decals_202607181859.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid var(--window-border); outline: 2px solid var(--accent); outline-offset: 4px; margin: 0 auto 25px auto; display: block;">
                 <h2 style="font-family: var(--font-title); color: var(--accent); font-size: 2rem; margin: 0 0 25px 0;">Moonnsy</h2>
                 
                 <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; margin: 0 auto;">
