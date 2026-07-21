@@ -1,5 +1,6 @@
 import os
 import re
+import hashlib
 
 OLD_DIR = os.path.abspath(os.path.dirname(__file__))
 OLD_INDEX = os.path.join(OLD_DIR, 'source_data.html')
@@ -27,6 +28,7 @@ TEMPLATE = """<!DOCTYPE html>
         <a href="styles.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Styles</a>
         <a href="themes.html"><svg class="menu-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Themes</a>
         <a href="extensions.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Extensions</a>
+        <a href="guides.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Guides</a>
         <a href="about.html"><svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg> About</a>
         <a href="https://t.me/moonnsypic" target="_blank" title="Telegram"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
     </div>
@@ -81,6 +83,7 @@ def parse_cards():
         'style': [],
         'theme': [],
         'extension': [],
+        'guide': [],
         'about': [],
         'recolors': []
     }
@@ -92,6 +95,7 @@ def parse_cards():
         'style': 'STYLE',
         'theme': 'THEME',
         'extension': 'EXTENSION',
+        'guide': 'GUIDE',
         'about': 'ABOUT',
         'recolors': 'RECOLORS',
     }
@@ -104,21 +108,21 @@ def parse_cards():
         # Remove the redundant badge from inside the card
         inner_html = re.sub(r'<span class="badge">.*?</span>\s*', '', inner_html, flags=re.DOTALL)
         
-        if category == 'extension':
-            import hashlib
+        if category in ('extension', 'guide'):
             title_match = re.search(r'<div class="info-title">(.*?)</div>', inner_html, re.DOTALL)
             if title_match:
                 title = title_match.group(1).strip()
                 slug = hashlib.md5(title.encode()).hexdigest()[:8]
+                prefix = 'ext' if category == 'extension' else 'guide'
                 
                 img_match = re.search(r'<div class="info-img">(.*?)</div>', inner_html, re.DOTALL)
-                desc_match = re.search(r'<div class="info-desc">(.*?)</div>\s*</div>', inner_html, re.DOTALL)
+                desc_match = re.search(r'<div class="info-desc">(.*)</div>\s*</div>\s*</div>\s*$', inner_html, re.DOTALL)
                 
                 if desc_match:
                     img_url = img_match.group(1).strip() if img_match else ''
                     desc_html = desc_match.group(1).strip()
                     
-                    ext_page_content = f'''
+                    page_content = f'''
                     <div class="about-container" style="max-width: 800px; margin: 0 auto; width: 100%;">
                         <article class="retro-window about-card" data-tags="{tags}" style="display: block; width: 100%; box-sizing: border-box;">
                             <div class="window-titlebar">
@@ -139,22 +143,24 @@ def parse_cards():
                     </div>
                     '''
                     
-                    ext_page = TEMPLATE.format(
+                    page_out = TEMPLATE.format(
                         TITLE=title,
                         HEADER=title.upper(),
                         FILTERS="",
-                        CONTENT=ext_page_content
+                        CONTENT=page_content
                     ).replace('<div class="standard-grid">', '<div>')
                     
-                    with open(os.path.join(NEW_DIR, f'ext_{slug}.html'), 'w', encoding='utf-8') as ext_f:
-                        ext_f.write(ext_page)
+                    with open(os.path.join(NEW_DIR, f'{prefix}_{slug}.html'), 'w', encoding='utf-8') as page_f:
+                        page_f.write(page_out)
                     
                     # Modify inner_html to link to the new page and remove hidden data
-                    inner_html = re.sub(r'<!-- Скрытые данные.*?</div>\s*</div>', '', inner_html, flags=re.DOTALL)
-                    inner_html = re.sub(r'<button class="view-btn info-btn">.*?<span>Подробнее</span>\s*</button>', 
-                                        f'<a href="ext_{slug}.html" class="view-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">'
-                                        f'<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>'
-                                        f'<span>Подробнее</span></a>', inner_html, flags=re.DOTALL)
+                    btn_text_match = re.search(r'<button class="view-btn info-btn">.*?<span>(.*?)</span>\s*</button>', inner_html, re.DOTALL)
+                    btn_text = btn_text_match.group(1) if btn_text_match else "Open"
+                    inner_html = re.sub(r'<!-- Скрытые данные.*', '</div>\n', inner_html, flags=re.DOTALL)
+                    inner_html = re.sub(r'<button class="view-btn info-btn">.*?</button>', 
+                                        f'<a href="{prefix}_{slug}.html" class="view-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">'
+                                        f'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2-2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>'
+                                        f'<span>{btn_text}</span></a>', inner_html, flags=re.DOTALL)
         
         label = CATEGORY_LABELS.get(category, category.upper())
         
@@ -238,6 +244,16 @@ def build_site():
     with open(os.path.join(NEW_DIR, 'extensions.html'), 'w', encoding='utf-8') as f:
         f.write(ext_page)
         
+    # 4.5 Guides
+    guides_page = TEMPLATE.format(
+        TITLE="Guides",
+        HEADER="GUIDES",
+        FILTERS="",
+        CONTENT="\n".join(cards.get('guide', []))
+    )
+    with open(os.path.join(NEW_DIR, 'guides.html'), 'w', encoding='utf-8') as f:
+        f.write(guides_page)
+        
     # 5. About
     about_page = TEMPLATE.format(
         TITLE="About",
@@ -287,6 +303,10 @@ def build_site():
                     <a href="extensions.html" class="action-btn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                         Extensions
+                    </a>
+                    <a href="guides.html" class="action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        Guides
                     </a>
                     <a href="about.html" class="action-btn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>

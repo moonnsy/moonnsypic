@@ -271,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 updateSparseMode();
+                setTimeout(() => window.dispatchEvent(new Event('resize')), 50);
             });
         });
     }
@@ -307,13 +308,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const parentContainer = img.closest('.carousel-images') || img.parentElement;
                 currentGallery = Array.from(parentContainer.querySelectorAll('.card-img'));
                 
-                // Если это промпты, собираем все видимые промпты
-                if (img.closest('.prompt-card')) {
+                // Если это промпты БЕЗ карусели, собираем все видимые промпты для удобной навигации
+                if (img.closest('.prompt-card') && !img.closest('.carousel-images')) {
                     const visibleCards = Array.from(document.querySelectorAll('.prompt-card')).filter(card => card.style.display !== 'none');
-                    currentGallery = visibleCards.map(c => {
-                        // Берем первую картинку в карточке для галереи, или все картинки
-                        return c.querySelector('.card-img');
-                    }).filter(Boolean);
+                    currentGallery = visibleCards.map(c => c.querySelector('.card-img')).filter(Boolean);
                 }
 
                 currentIndex = currentGallery.indexOf(img);
