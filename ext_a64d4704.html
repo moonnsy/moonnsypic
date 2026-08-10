@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonnsy — MoodBoard</title>
+    <link rel="icon" type="image/png" href="sprite_0004.png">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const savedTheme = localStorage.getItem('moonnsy-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+    <div class="top-menu">
+        <a href="javascript:history.back()"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</a>
+        <a href="index.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Home</a>
+        <a href="prompts.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompts</a>
+        <a href="styles.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Styles</a>
+        <a href="themes.html"><svg class="menu-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Themes</a>
+        <a href="extensions.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Extensions</a>
+        <a href="guides.html"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Guides</a>
+        <a href="about.html"><svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg> About</a>
+        <a href="https://t.me/moonnsypic" target="_blank" title="Telegram"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
+    </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>MOODBOARD</h1>
+        </div>
+        
+        <div>
+            
+                    <div class="about-container" style="max-width: 800px; margin: 0 auto; width: 100%;">
+                        <article class="retro-window about-card" data-tags="" style="display: block; width: 100%; box-sizing: border-box;">
+                            <div class="window-titlebar">
+                                <div class="window-title"><svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> MoodBoard</div>
+                                <div class="window-controls">
+                                    <div class="control-btn control-min"></div>
+                                    <div class="control-btn control-max"></div>
+                                    <div class="control-btn control-close"></div>
+                                </div>
+                            </div>
+                            <div class="window-content">
+                                <img src="https://i.postimg.cc/ZqQ8Gxtw/photo-2026-08-10-12-54-31.jpg" alt="MoodBoard" class="about-page-img" style="margin-bottom: 20px;">
+                                <div class="about-text">
+                                    <p>Это доска, куда вы можете лепить картинки прямо из чата, писать свои заметки, сохранять
+                                цитаты, рисовать, крепить стикеры и собирать деревья отношений, семьи или любые свои. А
+                                потом всё это одной кнопкой отправить боту и получить самую разную реакцию! И на эту
+                                реакцию можно ответить или добавить её прямо в чат, хехехе.</p>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Доски:</h3>
+                            <ul>
+                                <li>В рамках чата — доска живёт внутри конкретного чата.</li>
+                                <li>В рамках персонажа — доска привязана к самому чару.</li>
+                                <li>Глобальные — доски, которые доступны везде.</li>
+                            </ul>
+                            <p>В каждом из разделов можно создать сколько угодно досок!</p>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Кнопки на
+                                доске:</h3>
+                            <img src="https://i.postimg.cc/rp2cQvz3/photo-2026-08-10-12-57-42.jpg"
+                                alt="Кнопки на доске MoodBoard" class="about-page-img"
+                                style="margin-top: 10px; margin-bottom: 15px;">
+                            <ul>
+                                <li><strong>Волшебная палочка</strong> — отправляет всю доску на ИИ. Долгое нажатие
+                                    позволяет выбрать стиль ответа и добавить ООС (ООС не заменяет стиль ответа, а
+                                    дополняет его).</li>
+                                <li><strong>Книжечка</strong> — тут собираются все ответы от ИИ в рамках доски.</li>
+                                <li><strong>Цель</strong> — ну тут всё просто, магнитит взгляд к центру, ниче такова.
+                                </li>
+                                <li><strong>Настройки и кнопка закрытия борда</strong> — тут всё базово.</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Инструменты:
+                            </h3>
+                            <img src="https://i.postimg.cc/SxCb2DVT/photo-2026-08-10-12-57-40.jpg"
+                                alt="Панель инструментов MoodBoard" class="about-page-img"
+                                style="margin-top: 10px; margin-bottom: 15px;">
+                            <ul>
+                                <li><strong>Курсор</strong> — тягайте всю доску как хотите, ничего необычного.</li>
+                                <li><strong>Кадрирование</strong> — выделите нужную область, и она отправится на ИИ,
+                                    стиль ответа можно выбрать прямо там.</li>
+                                <li><strong>Заметки</strong> — пишите свои заметки. На созданной заметке нажмите на
+                                    карандашик, тогда сможете менять текст, форматирование, плашки и всё остальное, там
+                                    же будет превью того, как заметка отобразится на доске.</li>
+                                <li><strong>Пикчи</strong> — прикрепляйте картинки из своей галереи, не только из чата.
+                                </li>
+                                <li><strong>Коллаж</strong> — долгое нажатие даёт выбрать количество фото и вид коллажа.
+                                </li>
+                                <li><strong>Дерево</strong> — по долгому нажатию расширение пропарсит ваш чат и составит
+                                    связи. Тут можно задать свою инструкцию для ИИ, какое именно дерево вам нужно, а в
+                                    самом дереве куча настроек и несколько видов. Тыкайтесь, смотрите!</li>
+                                <li><strong>Связи</strong> — можете провести связку от одной карточки к другой.</li>
+                                <li><strong>Сетка</strong> — чтобы ровно ставить картинки и заметки, а долгим нажатием
+                                    выбираются параметры сетки.</li>
+                                <li><strong>Таймлайн</strong> — настройки откроются при долгом нажатии: свои параметры,
+                                    количество делений и их названия. Картинки крепятся к делениям.</li>
+                                <li><strong>Карандаш</strong> — долгое нажатие откроет настройки: размер, сглаживание
+                                    линии и острый ли будет кончик.</li>
+                                <li><strong>Стрелка</strong> — ну тут просто стрелка.</li>
+                                <li><strong>Фигуры</strong> — долгое нажатие даёт выбрать любую из фигур.</li>
+                                <li><strong>Ластик</strong> — стирает линии.</li>
+                                <li><strong>Отмена</strong> — отменяет действие на доске.</li>
+                                <li><strong>Цвета и палитра</strong> — просто цвета да палитра, свои можно закрепить.
+                                </li>
+                                <li><strong>Стикерыыыы</strong> — можно загрузить любой стикер!</li>
+                                <li><strong>Размер</strong> — влияет на все фигуры.</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Ответы
+                                (Insights):</h3>
+                            <ul>
+                                <li>На каждый ответ от ИИ вы можете ответить и сами, продолжив с ним диалог.</li>
+                                <li>Там же можно раскидать ответы по папкам и добавить всю ветку прямиком в чат кнопкой
+                                    «+».</li>
+                                <li>Для одной выделенной области ответ можно перегенерировать (и выбрать для этого другой
+                                    стиль) — свайпы хранятся там же, а доска или фрагмент заново собираться не будут.
+                                </li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Темы
+                                оформления:</h3>
+                            <ul>
+                                <li>5 предустановленных тем на выбор.</li>
+                                <li>Тема, которая подстроится под тему таверны.</li>
+                                <li>Своя тема: выбрав её, нажмите «Настроить тему» — сможете задать цвета интерфейса и
+                                    загрузить свой фон.</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Экспорт и
+                                импорт:</h3>
+                            <ul>
+                                <li><strong>Сохранить доску в PNG</strong> — выгружает всю доску картинкой прямо на
+                                    телефон, качество на выбор:</li>
+                                <li><strong>Обычное</strong> — картинка создастся легко и легко скачается, но ваши
+                                    картинки из чата будут сжатые. Смотреть можно спокойно.</li>
+                                <li><strong>Высокое</strong> — качество значительно лучше, но рендериться будет дольше, а
+                                    сама пнгшка получится тяжелее.</li>
+                                <li><strong>Максимум</strong> — все вложенные в доску картинки останутся оригинального
+                                    размера (даже если 2К).</li>
+                                <li><strong>Экспорт доски (JSON), резервная копия досок и импорт доски (JSON)</strong> —
+                                    позволяют выгрузить одну или сразу все доски и вернуть их обратно в таверну.</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Интеграция с
+                                ИИ:</h3>
+                            <ul>
+                                <li><strong>Профиль подключения:</strong> можно выбрать как текущий API таверны, так и
+                                    любой из созданных профилей.</li>
+                                <li><strong>Стиль ответа:</strong> предустановлено 12 вариантов стилей, у каждого есть
+                                    описание — потыкайте сами. Также можно написать свой промпт!</li>
+                                <li><strong>Контекст:</strong> вручную выбираете количество сообщений, которые уйдут на
+                                    ИИ, а также карту персонажа, карту персоны, лорбуки и авторские заметки.</li>
+                                <li><strong>Отправлять в фоне:</strong> доска всегда собирается и отправляется на ИИ в
+                                    фоновом режиме, а отображение можно выбрать — полоска сверху, кружок или полностью
+                                    скрыть.</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Кнопки в чате:
+                            </h3>
+                            <ul>
+                                <li>Можно включать и выключать кнопки добавления цитат, добавления картинок и добавления
+                                    картинок в NOVA.</li>
+                                <li>Расположение кнопки на картинке вы выбираете самостоятельно.</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Картинки:</h3>
+                            <ul>
+                                <li><strong>Чёткость при увеличении:</strong> при приближении картинки подставляется
+                                    оригинал, так вы сможете её рассмотреть.</li>
+                                <li><strong>Уменьшить крупные картинки:</strong> вообще они уменьшаются сразу при
+                                    загрузке, но мало ли будет сбоить. При большом количестве картинок так можно
+                                    проверить, все ли уменьшены. Всё во имя оптимизации!</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Свои рамки и
+                                шрифты:</h3>
+                            <ul>
+                                <li><strong>Рамки и плашки:</strong> загружайте ПНГшки — те, что с пустым окошком,
+                                    станут рамками, а заполненные — плашками для заметочек.</li>
+                                <li><strong>Шрифты:</strong> можно загрузить ссылкой на Google Fonts, ссылкой с любого
+                                    другого сайта или самим файлом. Форматы ссылок и файлов расписаны прямо в расширении!
+                                </li>
+                            </ul>
+
+                            <h3 style="color: #eb8b8b; margin-top: 1.5rem; margin-bottom: 0.5rem;">Важно:</h3>
+                            <ul>
+                                <li>Долгое нажатие на картинку или заметку позволяет выбрать их для отправки на ИИ —
+                                    выбирать можно несколько сразу!</li>
+                                <li>Вообще, тыкайтесь везде: долгое нажатие всунуто во многие кнопки.</li>
+                                <li>PNG в качестве «Максимум» получается тяжёлой, и телефон может не потянуть её
+                                    выгрузку — страничка браузера может просто упасть, будьте осторожны.</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><em>Фух, вроде расписала всё, нелёгкое занятие! Я старалась
+                                    максимально оптимизировать эту штуку под телефоны, чтобы всем было удобнее ей
+                                    пользоваться и телефоны меньше нагружались. Тыкайте, пробуйте и если что —
+                                    говорите!</em></p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">x</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&lt;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&gt;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Fullscreen" class="lightbox-img" id="lightboxImg">
+            <button class="lightbox-copy-btn" id="lightboxCopyBtn" style="display:none;" title="Скопировать промпт">
+                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Info Modal -->
+    <div id="infoModal" class="lightbox">
+        <div class="lightbox-content" style="background: var(--window-bg); border: 2px solid var(--window-border); border-radius: 8px; max-width: 600px; padding: 20px; text-align: left; position: relative; width: 90vw;">
+            <button class="lightbox-close" id="infoModalClose">x</button>
+            <img id="infoModalImg" src="" alt="Cover" style="width: 100%; border-radius: 4px; margin-bottom: 15px; display: none;">
+            <h2 id="infoModalTitle" style="color: var(--text-main); font-family: var(--font-title); margin-bottom: 10px;">Title</h2>
+            <div id="infoModalDesc" style="color: var(--text-main); font-size: 14px; line-height: 1.5; max-height: 50vh; overflow-y: auto; padding-right: 10px;">Description</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
